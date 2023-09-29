@@ -1,4 +1,5 @@
 ﻿
+using FactoryMethod.ClientCode;
 using FactoryMethod.CreatorFile;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
@@ -11,24 +12,21 @@ namespace FactoryMethod.Controllers
     {
         
         [HttpPost]
-        public async Task<IActionResult> GetVenta([FromQuery] string producto)
+        public IActionResult GetVenta([FromQuery] string producto)
         {
-            {
-                Console.WriteLine();
-            };
             try
             {
-                return null;
+                var client = new ClientVenta();
+                var burger = new ConcreteCreatorBusger();
+                client.Client(burger);
+
+                return Ok("Operación exitosa");
             }catch (Exception ex) {
                 return BadRequest(ex.Message);
             }
         }
-        public void ClientCode(Creator creator)
-        {
-            // ...
-            Console.WriteLine("Client: I'm not aware of the creator's class," +
-                "but it still works.\n" + creator.calcular());
-            // ...
-        }
+
+        
+
     }
 }

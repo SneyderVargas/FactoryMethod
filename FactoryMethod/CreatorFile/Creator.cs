@@ -5,10 +5,10 @@ namespace FactoryMethod.CreatorFile
     public abstract class Creator
     {
         public abstract IVentasRepo FactoryMethod();
-        public (bool Succeeded, string Message) calcular()
+        public string  calcular()
         {
             var venta = FactoryMethod();
-            return (true, "Se instancia correctamente en Creator: " + venta.calcular());
+            return ("Se instancia correctamente en Creator: " + venta.calcular());
         }
     }
 }

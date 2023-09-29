@@ -2,6 +2,6 @@
 {
     public interface IVentasRepo
     {
-        Task<(bool Succeeded, string Message)> calcular();
+        string calcular();
     }
 }

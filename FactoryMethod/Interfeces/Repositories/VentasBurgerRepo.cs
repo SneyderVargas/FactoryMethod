@@ -2,14 +2,14 @@
 {
     public class VentasBurgerRepo : IVentasRepo
     {
-        public async Task<(bool Succeeded, string Message)> calcular()
+        public string calcular()
         {
             try
             {
-                return(true, "Exitoso Burger");
+                return("Exitoso Burger");
             }catch (Exception ex)
             {
-                return (false, ex.Message);
+                return (ex.Message);
             }
         }
     }
