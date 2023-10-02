@@ -20,6 +20,10 @@ namespace FactoryMethod.Controllers
                 var burger = new ConcreteCreatorBusger();
                 client.Client(burger);
 
+                var client2 = new ClientVenta();
+                var pizza = new ConcreteCreatorPizza();
+                client2.Client(pizza);
+
                 return Ok("Operación exitosa");
             }catch (Exception ex) {
                 return BadRequest(ex.Message);

@@ -13,10 +13,22 @@ namespace FactoryMethod.Controllers
         public IActionResult Connection([FromQuery] string db) {
             try
             {
-                var clientConnection = new ClientConnection();
+                // Sqlite
+                var clientConnectionSqlite = new ClientConnection();
                 var concreteCreatorSQLiteConnection = new ConcreteCreatorSQLiteConnection();
-                IDbConnection sqliteConect = clientConnection.Conection(concreteCreatorSQLiteConnection);
-                sqliteConect.Open();
+                IDbConnection sqliteConnect = clientConnectionSqlite.Conection(concreteCreatorSQLiteConnection);
+
+                sqliteConnect.Open();
+                sqliteConnect.Close();
+                // MySql
+                var clientConnectionMySql = new ClientConnection();
+                var concreteCreatorMysqlConnection = new ConcreteCreatorMySqlConnection();
+                IDbConnection mySqlConnect = clientConnectionMySql.Conection(concreteCreatorMysqlConnection);
+
+                mySqlConnect.Open();
+                mySqlConnect.Close();
+
+
 
 
 
